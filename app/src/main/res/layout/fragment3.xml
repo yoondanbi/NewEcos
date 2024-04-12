@@ -22,15 +22,16 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="207dp"
-            android:layout_height="209dp"
+            android:layout_width="316dp"
+            android:layout_height="320dp"
             android:layout_marginTop="16dp"
-            android:src="@drawable/graph"
+            android:src="@drawable/diary"
             app:layout_constraintBottom_toBottomOf="@+id/imgBanner3"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.181" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/tv3"
@@ -48,10 +49,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/imgBanner3"
             app:layout_constraintTop_toBottomOf="@+id/imageView4"
-            app:layout_constraintVertical_bias="0.278" />
+            app:layout_constraintVertical_bias="0.095" />
 
         <TextView
             android:id="@+id/textView3"
@@ -69,5 +70,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv3"
             app:layout_constraintVertical_bias="0.128" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
