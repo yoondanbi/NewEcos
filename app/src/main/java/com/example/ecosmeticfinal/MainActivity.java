@@ -28,7 +28,8 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //뷰페이저 관련
+        //뷰페
+        // 이저 관련
         //ViewPager2
         mPager = (ViewPager2) findViewById(R.id.viewpager);
         //1. Adapter

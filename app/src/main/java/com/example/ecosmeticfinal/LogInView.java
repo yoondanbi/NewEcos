@@ -1,7 +1,6 @@
 package com.example.ecosmeticfinal;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,12 +8,13 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class LogInView extends AppCompatActivity {
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     private ActionBar actionBar;
     private WebView webView;
@@ -25,6 +25,22 @@ public class LogInView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_view);
 
+        //스와이프 리프레시 레이아웃 관련
+        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //swipe 시 진행할 동작
+                webView.reload(); //웹뷰 다시 로딩하여 새로고침
+                //업데이트가 끝났음을 알림, 새로고침 아이콘 제거
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+        //새로고침 아이콘 색상 설정
+        swipeRefreshLayout.setColorSchemeResources(
+                android.R.color.holo_green_light
+        );
+        /*
         //액션바 관련
         actionBar=getSupportActionBar();
         if (actionBar == null) { //액션바가 null이면
@@ -41,7 +57,7 @@ public class LogInView extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true); //툴바의 홈버튼을 활성화(아이콘을 맨 왼쪽으로 배치하는 방법의 대안)
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.my_menu_back);//홈버튼 이미지를 뒤로가기 이미지로 변경
         }
-
+        */
         //웹뷰 변수 설정
         webView=(WebView)findViewById(R.id.logInWebViewId); //웹뷰 초기화
         webView.getSettings().setJavaScriptEnabled(true); //자바스크립트 활성화

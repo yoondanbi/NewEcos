@@ -45,4 +45,5 @@ dependencies {
     implementation("com.google.android.material:material:1.3.0-alpha03")
     implementation("androidx.viewpager2:viewpager2:1.0.0") // Viewpager2 라이브러리 추가
     implementation("me.relex:circleindicator:2.1.6") // Viewpager Indicator Circle 라이브러리 추가
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0") //SwifeRefreshLayout을 쓰기 위한 implementation
 }
