@@ -11,11 +11,12 @@ import android.webkit.WebViewClient;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class LogInView extends AppCompatActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
-
+    private Toolbar toolbar;
     private ActionBar actionBar;
     private WebView webView;
     private String url="https:/www.naver.com"; //여기에 이동하고 싶은 웹 주소 입력
@@ -24,6 +25,14 @@ public class LogInView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_view);
+
+        //커스텀 액션바 새로운 방법
+        toolbar = findViewById(R.id.logintoolbar);
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         //스와이프 리프레시 레이아웃 관련
         swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.swipeRefreshLayout);

@@ -1,7 +1,6 @@
 package com.example.ecosmeticfinal;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,24 +8,31 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class JoinView extends AppCompatActivity {
-
+    private Toolbar toolbar;
     private ActionBar actionBar;
     //private TextView titleTextView; //액션바의 타이틀
     private WebView webView;
-    private String url="https:/www.daum.net"; //여기에 이동하고 싶은 웹 주소 입력
+    private String url="https:/www.naver.com"; //여기에 이동하고 싶은 웹 주소 입력
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_view);
 
-        //액션바 관련
+        //커스텀 액션바 새로운 방법
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        /*//액션바 관련
         actionBar=getSupportActionBar();
         if (actionBar == null) { //액션바가 null이면
             // ActionBar가 null이면 사용자에게 메시지를 표시합니다.
@@ -45,7 +51,7 @@ public class JoinView extends AppCompatActivity {
             //액션바 타이틀 변경
             //titleTextView = findViewById(R.id.action_bar_title); //layout/custom_action_bar.xml에 정의
             // titleTextView.setText(getString(R.string.join_action_bar_title)); //values/string.xml에 정의
-        }
+        }*/
         //웹뷰 변수 설정
         webView=(WebView)findViewById(R.id.joinWebViewId);
         webView.getSettings().setJavaScriptEnabled(true);
